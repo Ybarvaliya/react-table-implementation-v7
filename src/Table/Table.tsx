@@ -1,9 +1,16 @@
 // Table.tsx
-import { Column, usePagination, useSortBy, useTable } from "react-table";
+import {
+  Column,
+  TableOptions,
+  usePagination,
+  useSortBy,
+  useTable,
+} from "react-table";
+import { UserData } from "./data";
 
 interface TableComponentProps {
-  data: T[];
-  columns: Column[];
+  data: UserData[];
+  columns: Column<UserData>[];
   heading: string;
   showPagination: boolean;
 }
@@ -14,6 +21,12 @@ const TableComponent = ({
   heading,
   showPagination = false,
 }: TableComponentProps) => {
+  const options: TableOptions<UserData> = {
+    columns,
+    data,
+    initialState: { pageSize: 5, pageIndex: 2 },
+  };
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -27,15 +40,7 @@ const TableComponent = ({
     state: { pageIndex },
     pageCount,
     gotoPage,
-  }: any = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageSize: 5, pageIndex: 2 },
-    },
-    useSortBy,
-    usePagination
-  );
+  }: any = useTable(options, useSortBy, usePagination);
 
   return (
     <div>
