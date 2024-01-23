@@ -1,4 +1,4 @@
-import './Table.css'
+import "./Table.css";
 import {
   Column,
   TableOptions,
@@ -40,16 +40,16 @@ const TableComponent = ({
     state: { pageIndex },
     pageCount,
     gotoPage,
-  }: any = useTable(options, useSortBy, usePagination);
+  } = useTable(options, useSortBy, usePagination);
 
   return (
     <div>
       <h2 className="">{heading}</h2>
       <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((hg: any) => (
+          {headerGroups.map((hg) => (
             <tr {...hg.getHeaderGroupProps()}>
-              {hg.headers.map((column: any) => (
+              {hg.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   {column.isSorted && (
@@ -61,11 +61,11 @@ const TableComponent = ({
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map((row: any) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()} key={row.id}>
-                {row.cells.map((cell: any) => (
+                {row.cells.map((cell) => (
                   <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                 ))}
               </tr>
