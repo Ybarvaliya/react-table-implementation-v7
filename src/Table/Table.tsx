@@ -76,7 +76,7 @@ const TableComponent = ({
 
       {/* Pagination */}
       {showPagination && (
-        <div>
+        <div className="table-pagination text-center">
           <button disabled={pageIndex === 0} onClick={() => gotoPage(0)}>
             First
           </button>{" "}
