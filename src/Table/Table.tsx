@@ -1,4 +1,4 @@
-// Table.tsx
+import './Table.css'
 import {
   Column,
   TableOptions,
