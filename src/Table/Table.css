@@ -64,6 +64,11 @@ table {
 
   .table-pagination {
     padding: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
     > button {
       padding: 0.5rem 1rem;
       border: none;
